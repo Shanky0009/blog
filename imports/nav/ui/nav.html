@@ -1,0 +1,22 @@
+<template name = "nav" > 
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="home navbar-brand" href="/">Welcome to Bloggers' Blog!!</a>
+		    </div>
+		    <ul class="nav navbar-nav navbar-right">
+				{{#if currentUser}}
+					<li><a href="/blogs" class="blog"><span class="glyphicon glyphicon-xbt"></span> Blogs</a></li>
+					<li><a href="/addBlog" class="addBlog"><span class="glyphicon glyphicon-pencil"></span> Add Blog</a></li>
+					<li><a href="/profile/{{currentUser.username}}" class="profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+					<li><a href="/setting" class="setting"><span class="glyphicon glyphicon-user"></span> Setting</a></li>
+		      		<li><a href="#" class="logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+				{{else}}
+					<li><a href="/blogs" class="blog"><span class="glyphicon glyphicon-blog"></span> Blog</a></li>
+					<li><a href="/sign-up" class="signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+		      		<li><a href="/login" class="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				{{/if}}
+			</ul>
+		</div>
+	</nav>
+</template>

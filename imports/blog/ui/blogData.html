@@ -1,0 +1,81 @@
+<template name="blog">
+	<div class="row">
+	  	<div class="col-sm-2"></div>
+  		<div class="col-sm-8">
+  			<li class="list-group-item list-group-item-success">
+  				{{#if oneBlog}}
+  					<div id="title" class="text">
+						<h2>
+							<a href="/blogs/{{_id}}" class="blogView">{{title}}</a>
+						</h2>
+						{{#if owner}}
+							<button type="button" class="delete btn btn-link">
+			    				<span class="glyphicon glyphicon-remove"></span>
+			  				</button>
+							<a href="/editBlog/{{_id}}" >
+								<button class="edit btn btn-link glyphicon glyphicon-edit">
+									Edit
+								</button>
+							</a>
+						{{/if}}			
+					</div>
+
+					<div class="clearfix"></div>
+
+					<div id="info">
+						<strong>By: <a href="/profile/{{username}}">{{username}}</a> </strong>
+						<p> On: {{date.day}}, {{date.month}} {{date.date}}, {{date.year}}</p>
+						<p> At: {{date.hour}}:{{date.minute}}</p>
+					</div>
+
+					<div class="clearfix"></div>
+
+					<div id="content">
+						<h4>{{content}}</h4>
+					</div>
+
+					<div class="clearfix"></div>
+					
+					{{#if currentUser}}
+						<div id="comment">
+							<ul>
+								{{#each comments}}
+									{{> cmnt}}
+								{{/each}}	
+							</ul>
+							<form class="new-comment">
+								<textarea class="form-control" name="comment" placeholder="Enter your comment"></textarea>
+								<input type="submit" name="submit" value="Comment">
+							</form>
+						</div>
+					{{/if}}	
+	  			{{else}}
+					<a id="blogInfo" href="/blogs/{{_id}}">
+	  					<div id="title" class="text">
+		  					<h2>
+								<a href="/blogs/{{_id}}" class="blogView">{{title}}</a>
+							</h2>
+						</div>
+
+						<div class="clearfix"></div>
+
+						<div id="info">
+							<strong>By: {{username}} </strong>
+							<p> On: {{date.day}}, {{date.month}} {{date.date}}, {{date.year}}</p>
+							<p> At: {{date.hour}}:{{date.minute}}</p>
+						</div>
+
+						<div class="clearfix"></div>
+
+						<div id="content">
+							<h4>{{content}}</h4>
+							<a href="/blogs/{{_id}}">Read More..</a>
+						</div>
+	  				</a>
+				{{/if}}
+			</li>
+  		</div>
+  		<div class="clearfix"></div>
+  		<div class="col-sm-2"></div>
+	</div>
+</template>

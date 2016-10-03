@@ -1,0 +1,13 @@
+{
+  "name": "blog",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "filereader": "^0.10.3",
+    "index.js": "0.0.3",
+    "meteor-node-stubs": "~0.2.0"
+  }
+}

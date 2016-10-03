@@ -1,0 +1,30 @@
+<template name = "profile">
+	<div class="row">
+		{{#with user}}
+			<div class="container">
+				<header>
+					<div>
+						<h3>User Profile</h3>
+					</div>
+					<div class="profilePic">
+						{{#if userProfile}}
+							<img src="/images/images.png" alt="user">
+						{{else}}	
+							<img src="/images/images.png" alt="user">
+						{{/if}}	
+					</div>
+					
+					<h1>Username: {{username}}</h1>
+					{{#each emails}}
+						<h2>Email Id: {{address}}</h2>
+					{{/each}}
+					<h3>First Name: {{profile.first_Name}}</h3>							    
+					<h3>Last Name: {{profile.last_Name}}</h3>							    
+				    <h3>Phone No: {{profile.phonNo}}</h3>							    			    	
+					<h3>City: {{profile.city}}</h3>							    				  				    	
+					<h3>Country: {{profile.country}}</h3>
+				</header>
+			</div>        						    
+		{{/with}}
+	</div>
+</template>

@@ -1,0 +1,29 @@
+<template name="bloggs">
+		
+		{{#if addBlog}}
+			{{#if currentUser}}
+				<div class="form-group">
+					<form class="new-blog">
+						<input type="text" name="title" class="form-control"  placeholder="Enter new blog" value={{addBlog.title}}>
+			  			<textarea class="form-control" name="content" rows="5" id="comment" placeholder="Type to add new blog" value={{addBlog.content}}></textarea>
+			  			<input type="hidden" name="blogId" value={{addBlog._id}}>
+			  			<input type="submit" class="btn btn-default" value="POST">
+					</form>
+				</div>
+			{{else}}
+					<div class="jumbotron">
+					  	<h1>Login to start Blogging!</h1>
+					</div>
+			{{/if}}
+		{{else}}	
+			<ul class="list-group">
+				{{#each blogs}}
+					{{> blog}}
+				{{/each}}	
+			</ul> 
+		{{/if}}	
+</template>
+
+
+
+

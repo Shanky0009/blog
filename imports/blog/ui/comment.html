@@ -1,0 +1,38 @@
+<template name='cmnt'>
+	<li class="list-group-item list-group-item-info">
+		<span>
+			<div id="infoComnt">
+				<h5 class="ownerName">{{owner}} says </h5>
+				<h5>: {{comment}}</h5>
+				{{#if commentOwner}}
+					<button type="button" class="deleteCmnt btn btn-link btn-xs">
+	    				<span class="glyphicon glyphicon-remove"></span>
+	  				</button>
+	  			{{/if}}	
+			</div>
+
+			<div class="clearfix"></div>
+
+			{{#each innerComment}}
+				<li class="list-group-item list-group-item-danger">
+					<div id="infoInnerComnt">
+						<h5 class="ownerInnerName">{{owner}} says </h5>
+						<h5>: {{comment}}</h5>
+						{{#if commentOwner}}
+							<button type="button" class="deleteInnerCmnt btn btn-link btn-xs">
+			    				<span class="glyphicon glyphicon-remove"></span>
+			  				</button>
+			  			{{/if}}	
+					</div>
+					<div class="clearfix"></div>
+				</li>
+			{{/each}}	
+		</span>
+		<form class="inner-comment">
+			<input type="hidden" name="blogId" value={{blogId}}>
+			<textarea class="form-control" name="comment" placeholder="Enter your comment"></textarea>
+			<input type="submit" name="submit" value="comment">
+		</form>
+	</li>
+	<div class="clearfix"></div>
+</template>
